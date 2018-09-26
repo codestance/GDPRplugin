@@ -77,7 +77,7 @@
     	// 	return true;
     	// }
     	if (document.cookie.split(';').filter(function(item) {
-    		return item.indexOf('reader=1') >= 0
+    		return item.indexOf('GDPR=1') >= 0
 		}).length) {
     		return true;
 		}
