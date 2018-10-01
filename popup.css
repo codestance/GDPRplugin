@@ -39,8 +39,10 @@
 
 .popup-btn{
 	min-height:40px;
-	background:  grey;
+	min-width: 80px;
+	border-radius: 20px;
 	border:  none;
+	background:  grey;
 	color:  #fff;
 	vertical-align: middle;
 	text-decoration: none;
