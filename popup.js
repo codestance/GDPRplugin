@@ -52,20 +52,22 @@
             document.body.insertBefore(this.popup, document.body.firstChild);
         }.bind(this))
     };
+    window.onload = function(){
+        document.body.classList.add('overflow-hide');
+    }
     function close(accepted) {
         document.body.classList.remove('popup');
+        document.body.classList.remove('overflow-hide');
         this.popup.classList.remove('visible');
         if (accepted===true){
         	setCookie('GDPR', 'accepted', 1);
         }
-
     };
     function initEvents() {
         if (this.btn) {
             this.btn.addEventListener('click', this.close.bind(this));
         }
     }
-
     function setCookie(name, value, days){
         var d = new Date();
         d.setTime(d.getTime()+(days*24*60*60*1000));
@@ -73,9 +75,6 @@
         document.cookie = name + "=" + value + ";" + days + ";path=/";
     }
     function checkCookie(){
-    	// if(document.cookie.split(';').filter((item) => item.includes('GDPR=1')).length){
-    	// 	return true;
-    	// }
     	if (document.cookie.split(';').filter(function(item) {
     		return item.indexOf('GDPR=accepted') >= 0
 		}).length) {

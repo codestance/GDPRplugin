@@ -15,28 +15,27 @@
 	left: 0;
 	visibility: hidden;
 }
-
 .popup-box{
+	display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr auto;
+    grid-template-rows: 1fr auto;
+	box-sizing: border-box;
 	width:600px;
 	height:300px;
 	padding: 10px;
 	background: #fff;
-	position: relative;
 }
 .popup-content h1{
 	text-align: center;
 }
 .popup-footer{
-	width: 600px;
-	position: absolute;
-	bottom: 10px;
+	width: 100%;
+	-ms-grid-row: 2;
+    grid-row-start: 2;
+	-ms-grid-row-span: 1;
+	grid-row-end: 3;
 }
-.popup-footer::after{
-	content: "";
-	display: table;
-	clear: both;
-}
-
 .popup-btn{
 	min-height:40px;
 	min-width: 80px;
@@ -49,20 +48,30 @@
 	cursor: pointer;
 	display:  inline-block;
 }
-
 .popup-btn-accept{
 	background: green;
 	float: left;
 }
-
 .popup-btn-cancel{
 	background: red;
 	float:  right;
 }
-
 .closed{
 	display: none;
 }
 .visible{
 	visibility: visible;
+}
+.overflow-hide{
+	overflow: hidden;
+}
+@media (max-width:600px){
+	.popup-box{
+		width: 100%;
+	}
+}
+@media (max-height:300px){
+	.popup-box{
+		height: 100%;
+	}
 }
